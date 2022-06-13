@@ -104,42 +104,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(Earning::class)->sum('price');
     }
-    public function tradeIncome()
-    {
-        return $this->hasMany(Earning::class)->where('type','trade_income');
-    }
     public function directIncome()
     {
         return $this->hasMany(Earning::class)->where('type','direct_income');
     }
-    public function directTeamIncome()
+    public function indirectTeamIncome()
     {
-        return $this->hasMany(Earning::class)->where('type','direct_team_income');
-    }
-    public function uplineIncome()
-    {
-        return $this->hasMany(Earning::class)->where('type','upline_income');
-    }
-    public function downlineIncome()
-    {
-        return $this->hasMany(Earning::class)->where('type','down_line_income');
-    }
-    public function uplinePlacementIncome()
-    {
-        return $this->hasMany(Earning::class)->where('type','upline_placement_income');
-    }
-    public function downlinePlacementIncome()
-    {
-        return $this->hasMany(Earning::class)->where('type','down_line_placement_income');
-    }
-    public function rankingIncome()
-    {
-        return $this->hasMany(Earning::class)->where('type','ranking_income');
-    }
-    
-    public function associatedIncome()
-    {
-        return $this->hasMany(Earning::class)->where('type','associated_income');
+        return $this->hasMany(Earning::class)->where('type','in_direct_team_income');
     }
     
     public function totalWithdraw()
@@ -211,64 +182,23 @@ class User extends Authenticatable
 
 	public function placement()
     {
-        $placement =   $this->where('referral',$this->id)->where('type','!=','fake')->first();
+        $placement =   $this->where('referral',$this->id)->first();
         if($placement)
             return $placement->name;
         return null;
     }
 	public function uplineUser()
     {
-        $minimum_limit = $this->package->min_limit;
         $upline = [];
         $upper = $this;
-        for($i = 0; $i < $minimum_limit;$i++)
+        for($i = 0; $i < 4;$i++)
         {
-            $upper = User::where('referral',$upper->id)->where('type','!=','fake')->first();
+            $upper = User::where('referral',$upper->id)->first();
             if(!$upper)
                 break;
             $upline[] = $upper;
         }
         return $upline;
-    }
-	public function uplineUserIncome()
-    {
-        $upline = [];
-        $upper = $this;
-        for($i = 0; $i < 20;$i++)
-        {
-            $upper = User::where('referral',$upper->id)->where('type','!=','fake')->first();
-            if(!$upper)
-                break;
-            $upline[] = $upper;
-        }
-        return $upline;
-    }
-	public function downlineUser()
-    {
-        $maximum_limit = $this->package->max_limit;
-        $downline = [];
-        $down = $this;
-        for($i = 0; $i < $maximum_limit;$i++)
-        {
-            $down = User::where('id',$down->referral)->where('type','!=','fake')->first();
-            if(!$down)
-                break;
-            $downline[] = $down;
-        }
-        return $downline;
-    }
-	public function CompareDownlineuser($upline,$downline)
-    {
-        $users = $upline->downlineUser();
-        foreach($users as $user)
-        {
-
-            if($user->id == $downline->id)
-            {
-                return true;
-            }
-        }
-        return false;
     }
 	public function WithdrawLimits()
     {
@@ -325,11 +255,11 @@ class User extends Authenticatable
         }
         return $downline;
     }
-	public function directTeamParents()
+	public function indirectTeamParents()
     {
         $parents = [];
         $parent = $this;
-        for($i = 0; $i < 20;$i++)
+        for($i = 0; $i < 4;$i++)
         {
             $parent = User::where('id',$parent->refer_by)->first();
             if(!$parent)

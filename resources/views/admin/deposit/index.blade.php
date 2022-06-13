@@ -45,7 +45,7 @@
                 <td>{{$deposit->payment}}</td>
                 <td>{{Carbon\Carbon::parse($deposit->created_at)->format('d M,Y')}}</td>
                 <td>{{Carbon\Carbon::parse($deposit->created_at)->format('h:m')}}</td>
-                <td><a href="{{asset($deposit->image)}}"><i class="feather text-info" data-feather="eye"></i></a></td>
+                <td><a href="{{asset($deposit->image)}}" target="_blank"><i class="feather text-info" data-feather="eye"></i></a></td>
                 <td><a href="{{route('admin.user.active',$deposit->id)}}"><button class="btn btn-primary">Active</button></a></td>
                 <td><a href="{{route('admin.deposit.delete',$deposit->id)}}"><button class="btn btn-danger">Reject</button></a></td>
                 </tr>

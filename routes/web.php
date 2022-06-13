@@ -127,7 +127,7 @@ Route::group(['prefix' => 'user', 'as'=>'user.','namespace' => 'User'], function
     /*******************Logout ROUTES*************/       
     Route::get('logout','AuthController@logout')->name('logout');
     /*******************Dashoard ROUTES*************/
-    Route::view('dashboard', 'user.layout.index')->name('dashboard.index');
+    Route::view('dashboard', 'user.dashboard.index')->name('dashboard.index');
     /******************PACKAGE ROUTES****************/
     Route::get('package', 'PackageController@index')->name('package.index');
     Route::get('package/history', 'PackageController@history')->name('package.history');
@@ -139,7 +139,6 @@ Route::group(['prefix' => 'user', 'as'=>'user.','namespace' => 'User'], function
     Route::get('resend/verification_email', 'UserController@emailVerification')->name('resend.email_verification');
     Route::get('refer', 'UserController@refer')->name('refer.index');
     Route::get('refer/tree','ReferralController@showTree')->name('tree.show');
-    Route::post('transfer_funds','UserController@transferFunds')->name('transfer_funds');
     /******************Deposit  ROUTES****************/
        Route::resource('deposit', 'DepositController');
        /******************Withdraw  ROUTES****************/
@@ -147,31 +146,8 @@ Route::group(['prefix' => 'user', 'as'=>'user.','namespace' => 'User'], function
        /******************USER PROFILE  ROUTES****************/
        Route::resource('user', 'UserController');  
        /******************Earning ROUTES****************/
-       Route::get('earning/trade_income', 'EarningController@trade_income')->name('earning.trade_income');
-       Route::get('earning/direct_income', 'EarningController@direct_income')->name('earning.direct_income');
-       Route::get('earning/direct_team_income', 'EarningController@direct_team_income')->name('earning.direct_team_income');
-       Route::get('earning/upline_income', 'EarningController@upline_income')->name('earning.upline_income');
-       Route::get('earning/down_line_income', 'EarningController@down_line_income')->name('earning.down_line_income');
-       Route::get('earning/upline_placement_income', 'EarningController@upline_placement_income')->name('earning.upline_placement_income');
-       Route::get('earning/down_line_placement_income', 'EarningController@down_line_placement_income')->name('earning.down_line_placement_income');
-       Route::get('report/overall_earning', 'EarningController@overall_earning')->name('report.overall_earning');
-       Route::get('earning/ranking_income', 'EarningController@ranking_income')->name('earning.ranking_income');
-       Route::get('earning/associated_income', 'EarningController@associated_income')->name('earning.associated_income');
-    /*******************Balance Transfer ROUTES*************/
-    Route::get('balance_transfer', 'TranscationController@balance_transfer')->name('balance_transfer.index');
-  /******************TRANSCATIONS  ROUTES****************/
-    Route::resource('transcation', 'TranscationController'); 
-    /******************PIN  ROUTES****************/
-    Route::view('pin/used', 'user.pin.used')->name('pin.used');
-    Route::resource('pin', 'PinController'); 
-    Route::resource('pin_used', 'PinUsedController'); 
-    /******************PRODUCTS ROUTES****************/
-    Route::post('product/get_category_brand', 'ProductController@getCategoryBrand')->name('product.brands');     
-    Route::resource('product', 'ProductController');
-    Route::resource('product_image', 'ProductImageController');
-    /******************Chat  ROUTES****************/
-    Route::resource('chat', 'ChatController');
-    Route::resource('chatmessage', 'ChatMessageController');
+    Route::get('earning/direct_income', 'EarningController@direct_income')->name('earning.direct_income');
+    Route::get('earning/indirect_income', 'EarningController@indirect_income')->name('earning.indirect_income');
 });
 
 
@@ -181,25 +157,12 @@ Route::group(['prefix' => 'user', 'as'=>'user.','namespace' => 'User'], function
 // Route::post('user/deposit', 'User\DepositController@store')->name('user.deposit.store');
 /******************FRONTEND ROUTES****************/
 Route::view('/', 'front.home.index');
-Route::get('categories', 'FrontendController@showCategory')->name('category.index');
-Route::get('category/{name}', 'FrontendController@showCategoryDetails')->name('category.show');
-Route::get('brands', 'FrontendController@showBrands')->name('brand.index');
-Route::get('brand/{name}', 'FrontendController@showBrandDetails')->name('brand.show');
-Route::get('products', 'FrontendController@showProducts')->name('product.index');
-Route::get('product/{name}', 'FrontendController@showProductDetails')->name('product.show');
 Route::view('contact_us', 'front.contact.index'); 
 Route::view('packages', 'front.package.index'); 
 Route::view('about_us', 'front.about.index'); 
-Route::view('videos', 'front.video.index'); 
 Route::view('withdraw', 'front.withdraw.index'); 
 Route::view('terms_&_condition', 'front.term.index'); 
 
-//CronJobs
-Route::group(['prefix' => 'cronjob','namespace' => 'CronJob'], function () {
-    Route::get('payment_distrubtion', 'CronJobController@payment_distrubtion');
-    Route::get('payment_distrubtion_for_assoiated_account', 'CronJobController@payment_distrubtion_for_assoiated_account');
-    Route::get('upgrade_package', 'CronJobController@upgradePackage');
-});
 
 /******************FUNCTIONALITY ROUTES****************/
 Route::get('/cd', function() {

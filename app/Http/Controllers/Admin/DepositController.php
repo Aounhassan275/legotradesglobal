@@ -20,10 +20,18 @@ class DepositController extends Controller
     public function active($id)
     {
         $deposit = Deposit::find($id);
+        $package = Package::find($deposit->package_id);
         $user = $deposit->user; 
-        $user->update([
-            'cash_wallet' => $user->cash_wallet + $deposit->amount
-        ]);
+        // $user->update([
+        //     'status' => 'active',
+        //     'a_date' => Carbon::today(),
+        //     'package_id' => $package->id,
+        // ]);
+
+        if($package->price > 10)
+        {
+            ReferralIncome::referral($user);
+        }
         $deposit->update([
             'status' => 'old'
         ]);

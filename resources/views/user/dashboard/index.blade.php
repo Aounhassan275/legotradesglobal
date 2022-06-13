@@ -23,23 +23,6 @@ DASHBOARD
 @section('contents')
 <div class="row">
     <div class="col-sm-6 col-xl-3">
-        <div class="card card-body">
-            <div class="media mb-3">
-                <div class="media-body">
-                    <h6 class="font-weight-semibold mb-0">Cash Wallet</h6>
-                    <span class="text-muted">$ {{Auth::user()->cash_wallet}}</span>
-                </div>
-
-                <div class="ml-3 align-self-center">
-                    <i class="icon-wallet icon-2x text-danger-400 opacity-75"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-</div>
-<div class="row">
-    <div class="col-sm-6 col-xl-3">
         <div class="card card-body bg-blue-400 has-bg-image">
             <div class="media">
                 <div class="media-body">
@@ -100,12 +83,12 @@ DASHBOARD
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-6 col-xl-3">
+    <div class="col-sm-6 col-xl-4">
         <div class="card card-body bg-violet-400 has-bg-image">
             <div class="media">
                 <div class="media-body">
-                    <h3 class="mb-0">{{Auth::user()->associatedUsers()->count()}}</h3>
-                    <span class="text-uppercase font-size-xs">Total Associated User</span>
+                    <h3 class="mb-0">$ {{Auth::user()->directIncome()->sum('price')}}</h3>
+                    <span class="text-uppercase font-size-xs">Total Direct Income</span>
                 </div>
 
                 <div class="ml-3 align-self-center">
@@ -115,12 +98,12 @@ DASHBOARD
         </div>
     </div>
 
-    <div class="col-sm-6 col-xl-3">
+    <div class="col-sm-6 col-xl-4">
         <div class="card card-body bg-orange-400 has-bg-image">
             <div class="media">
                 <div class="media-body">
-                    <h3 class="mb-0">$ {{Auth::user()->associatedUsersIncome()}}</h3>
-                    <span class="text-uppercase font-size-xs">Associated Cash Wallet</span>
+                    <h3 class="mb-0">$ {{Auth::user()->indirectTeamIncome()->sum('price')}}</h3>
+                    <span class="text-uppercase font-size-xs">Total Indirect Income</span>
                 </div>
 
                 <div class="ml-3 align-self-center">
@@ -129,30 +112,16 @@ DASHBOARD
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-xl-3">
+    <div class="col-sm-6 col-xl-4">
         <div class="card card-body bg-brown-400 has-bg-image">
             <div class="media">
                 <div class="media-body">
-                    <h3 class="mb-0">$ {{Auth::user()->associatedIncome->sum('price')}}</h3>
-                    <span class="text-uppercase font-size-xs">Total Associated Income</span>
+                    <h3 class="mb-0">$ {{Auth::user()->totalEarning()}}</h3>
+                    <span class="text-uppercase font-size-xs">Total Income</span>
                 </div>
 
                 <div class="ml-3 align-self-center">
                     <i class="icon-cash3 icon-3x opacity-75"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6 col-xl-3">
-        <div class="card card-body bg-pink-400 has-bg-image">
-            <div class="media">
-                <div class="media-body">
-                    <h3 class="mb-0">$ {{Auth::user()->associatedUsersPackages()}}</h3>
-                    <span class="text-uppercase font-size-xs">Accoiated Package Price</span>
-                </div>
-
-                <div class="ml-3 align-self-center">
-                    <i class="icon-collaboration icon-3x opacity-75"></i>
                 </div>
             </div>
         </div>
