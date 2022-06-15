@@ -21,6 +21,20 @@ class UserSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()],
             ]);
+            DB::table('packages')->insert([
+                [ 'name' => 'Smallest',
+                'price' => '50',
+                'direct_income' => '20',
+                'indirect_income' => '10',
+                'weekly_roi' => '20',
+                'withdraw_limit' => '20'],
+                [ 'name' => 'Sliver',
+                'price' => '100',
+                'direct_income' => '20',
+                'indirect_income' => '10',
+                'weekly_roi' => '20',
+                'withdraw_limit' => '20'],
+                ]);
             DB::table('users')->insert([
                 [ 'name' => 'Lego',
                 'email' => 'lego@mail.com',
@@ -32,20 +46,6 @@ class UserSeeder extends Seeder
                 'image' => '/profile/311639246735.jpg',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()],
-            ]);
-        DB::table('packages')->insert([
-            [ 'name' => 'Smallest',
-            'price' => '50',
-            'direct_income' => '20',
-            'indirect_income' => '10',
-            'weekly_roi' => '20',
-            'withdraw_limit' => '20'],
-            [ 'name' => 'Sliver',
-            'price' => '100',
-            'direct_income' => '20',
-            'indirect_income' => '10',
-            'weekly_roi' => '20',
-            'withdraw_limit' => '20'],
             ]);
        
         DB::table('payments')->insert([
