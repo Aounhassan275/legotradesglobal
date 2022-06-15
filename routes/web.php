@@ -20,10 +20,6 @@ Route::group(['prefix' => 'admin', 'as'=>'admin.','namespace' => 'Admin'], funct
     /*******************LOGIN ROUTES*************/
     Route::view('login', 'admin.auth.index')->name('login');
     Route::post('login','AuthController@login');
-    Route::get('payment_distrubtion', 'AuthController@payment_distrubtion');
-    Route::get('payment_distrubtion_for_assoiated_account', 'AuthController@payment_distrubtion_for_assoiated_account');
-    Route::get('upgrade_package', 'AuthController@upgradePackage');
-    Route::get('payment_distrubtion_for_associated_Users', 'AuthController@payment_distrubtionforassociatedUsers');
      /******************MESSAGE ROUTES****************/
      Route::resource('message', 'MessageController');
     Route::group(['middleware' => 'auth:admin'], function () { 
@@ -84,27 +80,11 @@ Route::group(['prefix' => 'admin', 'as'=>'admin.','namespace' => 'Admin'], funct
        Route::get('withdraw/hold/{id}', 'WithdrawController@hold')->name('withdraw.hold');   
        Route::get('withdraw/completed/{id}', 'WithdrawController@completed')->name('withdraw.completed');   
        Route::get('withdraw/delete/{id}', 'WithdrawController@delete')->name('withdraw.delete');   
-	/******************Donation ROUTES****************/
-       Route::view('donation', 'admin.donation.index')->name('donation.index');
-    /*******************Balance Transfer ROUTES*************/
-    Route::get('balance_transfer', 'TranscationController@balance_transfer')->name('balance_transfer.index');
-    /******************TRANSCATIONS  ROUTES****************/
-    Route::get('transcation/all', 'TranscationController@allTranscations')->name('transcation.all');
-    Route::resource('transcation', 'TranscationController'); 
-    /******************PIN  ROUTES****************/
-    Route::view('pin_history', 'admin.transcation.pin')->name('transcation.pin_history');
-    /******************CATEGORY ROUTES****************/
-    Route::resource('category', 'CategoryController');
-    /******************BRAND ROUTES****************/
-    Route::resource('brand', 'BrandController');
-    /******************PRODUCTS ROUTES****************/
-    Route::post('product/get_category_brand', 'ProductController@getCategoryBrand')->name('product.brands');     
-    Route::resource('product', 'ProductController');
-    Route::resource('product_image', 'ProductImageController');
-    /******************CHATS ROUTES****************/
-    Route::resource('chat', 'ChatController');
-    Route::resource('chatmessage', 'ChatMessageController');
-});
+	/******************Roi ROUTES****************/
+       Route::view('roi_distribution', 'admin.roi_distribution.index')->name('roi_distribution.index');
+       Route::post('roi_distrubtion/save', 'AuthController@roi_distrubtion')->name('roi_distribution.save');
+       Route::get('roi_distrubtion/transfer', 'AuthController@roi_distrubtion_transfer')->name('roi_distrubtion.transfer');   
+    });
 });
 /******************USER PANELS ROUTES****************/
 Route::group(['prefix' => 'user', 'as'=>'user.','namespace' => 'User'], function () {
@@ -148,6 +128,7 @@ Route::group(['prefix' => 'user', 'as'=>'user.','namespace' => 'User'], function
        /******************Earning ROUTES****************/
     Route::get('earning/direct_income', 'EarningController@direct_income')->name('earning.direct_income');
     Route::get('earning/indirect_income', 'EarningController@indirect_income')->name('earning.indirect_income');
+    Route::get('earning/roi_income', 'EarningController@roi_income')->name('earning.roi_income');
 });
 
 

@@ -68,8 +68,11 @@
 
 			<span class="navbar-text ml-md-3">
 				<span class="badge badge-mark border-orange-300 mr-2"></span>
-				$ {{Auth::user()->cash_wallet}}
-			</span>
+				 <strong>Cash Wallet : </strong> $ {{Auth::user()->cash_wallet}}
+				</span>
+				<span style="margin-left:10px;" class="badge badge-mark border-teal-300 mr-2"></span>
+				 <strong>Roi Account : </strong> $ {{Auth::user()->roi_account}}
+				</span>
 
 			<ul class="navbar-nav ml-md-auto">
 				<li class="nav-item dropdown">
@@ -81,16 +84,22 @@
 					<div class="dropdown-menu dropdown-menu-right dropdown-content wmin-md-350">
 						<div class="dropdown-content-body p-2">
 							<div class="row no-gutters">
-								<div class="col-12 col-sm-6">
+								<div class="col-12 col-sm-4">
 									<a href="{{route('user.earning.direct_income')}}" class="d-block text-default text-center ripple-dark rounded p-3">
 										<i class="icon-credit-card2 text-pink-400 icon-2x"></i>
 										<div class="font-size-sm font-weight-semibold text-uppercase mt-2">Direct Earning</div>
 									</a>
 								</div>
-								<div class="col-12 col-sm-6">
+								<div class="col-12 col-sm-4">
 									<a href="{{route('user.earning.indirect_income')}}" class="d-block text-default text-center ripple-dark rounded p-3">
 										<i class="icon-credit-card2 text-teal-400 icon-2x"></i>
 										<div class="font-size-sm font-weight-semibold text-uppercase mt-2">Indirect Earning</div>
+									</a>
+								</div>
+								<div class="col-12 col-sm-4">
+									<a href="{{route('user.earning.roi_income')}}" class="d-block text-default text-center ripple-dark rounded p-3">
+										<i class="icon-credit-card2 text-success-400 icon-2x"></i>
+										<div class="font-size-sm font-weight-semibold text-uppercase mt-2">Roi Earning</div>
 									</a>
 								</div>
 							</div>
@@ -175,12 +184,7 @@
 								<li class="nav-item"><a href="{{route('user.withdraw.create')}}" class="nav-link {{Request::is('user/withdraw/create')?'active':''}}">Create</a></li>
 								<li class="nav-item"><a href="{{route('user.withdraw.index')}}" class="nav-link {{Request::is('user/withdraw')?'active':''}}">History</a></li>
 							</ul>
-						<li class="nav-item">
-							<a href="{{route('user.deposit.index')}}" class="nav-link {{Request::is('user/deposit')?'active':''}}">
-								<i class="icon-cart2"></i>
-								<span>Deposit</span>
-							</a>
-						</li>	
+						</li>
 						<li class="nav-item nav-item-submenu {{Request::is('user/refer*')?'nav-item-open':''}}">
 							<a href="#" class="nav-link"><i class="icon-users4"></i> <span>Referral</span></a>
 

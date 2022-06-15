@@ -88,6 +88,12 @@
                                 <span id="confirmmsg"></span>
 							</div>
 							<div class="form-group form-group-feedback form-group-feedback-left">
+                                <input class="form-control" type="number" name="phone" placeholder="Enter Phone" required>
+								<div class="form-control-feedback">
+									<i class="icon-phone text-muted"></i>
+								</div>
+							</div>
+							<div class="form-group form-group-feedback form-group-feedback-left">
                                 <input class="form-control" type="file" name="image" placeholder="Enter password" required>
 								<div class="form-control-feedback">
 									<i class="icon-file-picture text-muted"></i>

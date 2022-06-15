@@ -17,4 +17,8 @@ class EarningController extends Controller
     {
         return view('user.earning.direct_team_income');
     } 
+    public function roi_income(Request $request)
+    {
+        return view('user.earning.roi_income');
+    } 
 }

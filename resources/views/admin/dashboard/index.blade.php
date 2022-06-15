@@ -102,7 +102,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-4 d-xxl-flex">
+    <div class="col-md-3 d-xxl-flex">
 
         <div class="card flex-fill">
 
@@ -122,7 +122,7 @@
                         @endphp
                         <h3 class="mb-2">$ {{number_format(@$inloss_account->balance, 2)}}</h3>
 
-                        <div class="mb-0">Reward Account Balance</div>
+                        <div class="mb-0">InLoss Account Balance</div>
 
                     </div>
 
@@ -133,7 +133,7 @@
         </div>
 
     </div>
-    <div class="col-md-4  d-xxl-flex">
+    <div class="col-md-3  d-xxl-flex">
 
         <div class="card flex-fill">
 
@@ -148,9 +148,12 @@
                     </div>
 
                     <div class="media-body">
-                        <h3 class="mb-2">$ {{Auth::user()->purchase_packages()}}</h3>
+                        @php  
+                            $roi_account= App\Models\CompanyAccount::roi_account();
+                        @endphp
+                        <h3 class="mb-2">$ {{$roi_account->balance}}</h3>
 
-                        <div class="mb-0">Purchased Packages</div>
+                        <div class="mb-0">Roi Account Balance</div>
 
                     </div>
 
@@ -161,7 +164,7 @@
         </div>
 
     </div>
-    <div class="col-md-4  d-xxl-flex">
+    <div class="col-md-3  d-xxl-flex">
 
         <div class="card flex-fill">
 
@@ -179,6 +182,34 @@
                         <h3 class="mb-2">$ {{App\Models\User::active()->sum('cash_wallet')}}</h3>
 
                         <div class="mb-0">User Cash Wallet</div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="col-md-3  d-xxl-flex">
+
+        <div class="card flex-fill">
+
+            <div class="card-body py-4">
+
+                <div class="media">
+
+                    <div class="d-inline-block mt-2 mr-3">
+
+                        <i class="feather-lg text-voilet" data-feather="dollar-sign"></i>
+
+                    </div>
+
+                    <div class="media-body">
+                        <h3 class="mb-2">$ {{App\Models\User::active()->sum('roi_account')}}</h3>
+
+                        <div class="mb-0">User Roi Account</div>
 
                     </div>
 

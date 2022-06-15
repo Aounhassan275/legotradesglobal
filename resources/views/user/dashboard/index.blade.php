@@ -83,7 +83,7 @@ DASHBOARD
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-6 col-xl-4">
+    <div class="col-sm-6 col-xl-3">
         <div class="card card-body bg-violet-400 has-bg-image">
             <div class="media">
                 <div class="media-body">
@@ -98,7 +98,7 @@ DASHBOARD
         </div>
     </div>
 
-    <div class="col-sm-6 col-xl-4">
+    <div class="col-sm-6 col-xl-3">
         <div class="card card-body bg-orange-400 has-bg-image">
             <div class="media">
                 <div class="media-body">
@@ -112,7 +112,21 @@ DASHBOARD
             </div>
         </div>
     </div>
-    <div class="col-sm-6 col-xl-4">
+    <div class="col-sm-6 col-xl-3">
+        <div class="card card-body bg-teal-400 has-bg-image">
+            <div class="media">
+                <div class="media-body">
+                    <h3 class="mb-0">$ {{Auth::user()->roiIncome()->sum('price')}}</h3>
+                    <span class="text-uppercase font-size-xs">Total Roi Income</span>
+                </div>
+
+                <div class="ml-3 align-self-center">
+                    <i class="icon-wallet icon-3x opacity-75"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
         <div class="card card-body bg-brown-400 has-bg-image">
             <div class="media">
                 <div class="media-body">

@@ -79,7 +79,10 @@
 								<button type="submit" class="btn btn-primary btn-block">Sign in <i class="icon-circle-right2 ml-2"></i></button>
 							</div>
 							<p  class="text-center">Want To Register with Company?</p>
-							<a href="{{url('user/register/61d209bc1220c')}}"><button type="button" class="btn btn-primary btn-block">Register Now <i class="icon-circle-right2 ml-2"></i></button></a>
+							@php 
+							$first_user = App\Models\User::first();
+							@endphp
+							<a href="{{url('user/register',$first_user->code)}}"><button type="button" class="btn btn-primary btn-block">Register Now <i class="icon-circle-right2 ml-2"></i></button></a>
 						</div>
 					</div>
 				</form>

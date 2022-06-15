@@ -127,6 +127,11 @@
 						</ul>
 					</li>
 					@endif
+					<li class="sidebar-item {{Request::is('admin.roi_distribution.index')?'active':''}}">
+						<a class="sidebar-link" href="{{route('admin.roi_distribution.index')}}">
+							<i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Roi Distribution</span>
+						</a>
+					</li>
 					<li class="sidebar-item {{Request::is('admin.profile.index')?'active':''}}">
 						<a class="sidebar-link" href="{{route('admin.profile.index')}}">
 							<i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Profile</span>

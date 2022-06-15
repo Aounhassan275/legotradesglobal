@@ -38,10 +38,8 @@
                     @endif
                 </div>
                 <div>
-                    @if(Auth::user()->type == 1)
                     <br>
                     <a class="btn btn-info btn-sm" href="{{ route('admin.login.fake',$user->id) }}">Login</a>
-                    @endif
                 </div>
                 @endif
             </div>

@@ -25,4 +25,8 @@ class CompanyAccount extends Model
     {
         return (New static)::where('name','Inloss Account')->first();
     }
+    public static function roi_account()
+    {
+        return (New static)::where('name','Roi Account')->first();
+    }
 }

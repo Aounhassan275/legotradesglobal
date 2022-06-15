@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->foreign('package_id')->references('id')->on('packages')->onDelete('cascade');
             $table->string('address')->nullable();
             $table->float('cash_wallet')->default(0);
+            $table->float('roi_account')->default(0);
             $table->date('a_date')->nullable();
             $table->string('code')->nullable();
             $table->string('type')->default('Member');

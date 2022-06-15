@@ -22,13 +22,7 @@ class ReferralController extends Controller
     public function showTree()
     {
         $user = Auth::user();
-        if($user->checkStatus() == false)   
-        {
-          toastr()->success('Your Package is Expire');
-           return redirect(route('user.dashboard.index'));
-        }
-        $upline = $user->uplineUser();
-        $downline = $user->downlineUser();
-        return view('user.refer.user_tree',compact('user','downline','upline'));
+        $refers = $user->refers();
+        return view('user.refer.user_tree',compact('user','refers',));
     }    
 }

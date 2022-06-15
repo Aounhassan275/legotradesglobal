@@ -36,68 +36,6 @@ REFERRALS
 
     </div>
 </div>
-<div class="card">
-    <div class="card-header header-elements-inline bg-primary">
-        <h5 class="card-title">View Your Direct Referral</h5>
-        <div class="header-elements">
-            <div class="list-icons">
-                <a class="list-icons-item" data-action="collapse"></a>
-                <a class="list-icons-item" data-action="reload"></a>
-                <a class="list-icons-item" data-action="remove"></a>
-            </div>
-        </div>
-    </div>
-    <div class="table-responsive">
-        <table class="table datatable-basic datatable-row-basic">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Refer By</th>
-                    <th>Placement</th>
-                    <th>Status</th>
-                    <th>Temp Income</th>
-                    <th>Cash Wallet</th>
-                    <th>Community Pool</th>
-                    <th>Total Earning</th>
-                    <th>Total Referral</th>
-                    <th>Active Referral</th>
-                    <th>Inactive Referral</th>
-                </tr> 
-            </thead>
-            <tbody>
-                @foreach (Auth::user()->mrefers() as $key => $user)
-                    <tr> 
-                        <td>{{$key + 1}}</td>
-                        <td>{{$user->name}}</td>
-                        <td>{{$user->email}}</td>
-                        
-                        <td>
-                            @if($user->refer_by)
-                            {{$user->refer_by_name($user->refer_by)}}
-                            @endif
-                        </td>
-                        <td>{{$user->placement()}}</td>
-                        <td>
-                        @if ($user->checkstatus())
-                            <span class="badge badge-success">Active</span>  
-                            @else
-                            <span class="badge badge-danger">Pending</span>                                                      
-                            @endif</td>
-                        <td>{{$user->total_income}}</td>
-                        <td>{{$user->cash_wallet}}</td>
-                        <td>{{$user->community_pool}}</td>
-                        <td>{{$user->totalEarning()}}</td>
-                        <td>{{$user->mrefers()->count()}}</td>
-                        <td>{{$user->mrefers()->where('status','active')->count()}}</td>
-                        <td>{{$user->mrefers()->where('status','pending')->count()}}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-</div>
 @endsection
 
 @section('scripts')

@@ -1,15 +1,22 @@
 @extends('user.layout.index')
 @section('title')
-VIEW INDIRECT TEAM INCOME 
+VIEW ROI INCOME 
 @endsection
 @section('styles')
 <script src="{{asset('user_asset/global_assets/js/demo_pages/picker_date.js')}}"></script>
+<style>
+      .chart-container {
+  position: relative;
+  margin: auto;
+  height: 80vh;
+}
+</style>
 @endsection
 @section('contents')
 
 <div class="card">
     <div class="card-header header-elements-inline">
-        <h5 class="card-title">View Your Indirect Team Income History</h5>
+        <h5 class="card-title">View Your Roi Income History</h5>
         <div class="header-elements">
             <div class="list-icons">
                 <a class="list-icons-item" data-action="collapse"></a>
@@ -30,21 +37,23 @@ VIEW INDIRECT TEAM INCOME
             </tr> 
         </thead>
         <tbody>
-            @foreach (Auth::user()->indirectTeamIncome as $key => $income)
+            @foreach (Auth::user()->roiIncome as $key => $income)
                 <tr>
                     <td>{{$key+1}}</td>
-                    <td>{{$income->user->refer_by_name($income->due_to)}}</td>
+                    <td>Company</td>
                     <td>{{$income->created_at->format('d M,Y')}}</td>
                     <td>$ {{$income->price}}</td>
                 </tr>
                 @endforeach
                 <tr>
                     <td colspan="3" class="text-center">Total Income : </td>
-                    <td>$ {{Auth::user()->indirectTeamIncome->sum('price')}}</td>
+                    <td>$ {{Auth::user()->roiIncome->sum('price')}}</td>
                 </tr>
         </tbody>
     </table>
 </div>
+
 @endsection
 @section('scripts')
+
 @endsection

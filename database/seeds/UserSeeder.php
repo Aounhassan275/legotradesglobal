@@ -22,11 +22,13 @@ class UserSeeder extends Seeder
             'updated_at' => Carbon::now()],
             ]);
             DB::table('users')->insert([
-                [ 'name' => 'fake',
-                'email' => 'fake1@mail.com',
+                [ 'name' => 'Lego',
+                'email' => 'lego@mail.com',
                 'password' => Hash::make('1234'),
                 'code' => uniqid(),
-                'type' => 'fake',
+                'a_date' => Carbon::today(),
+                'package_id' => '1',
+                'status' => 'active',
                 'image' => '/profile/311639246735.jpg',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()],
@@ -68,6 +70,10 @@ class UserSeeder extends Seeder
             'updated_at' => Carbon::now()],
             [ 
             'name' => 'Inloss Account',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()],
+            [ 
+            'name' => 'Roi Account',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()],
         ]);

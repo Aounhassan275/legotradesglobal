@@ -23,7 +23,7 @@ class User extends Authenticatable
         'name','phone', 'email', 'password','city','status','balance','refer_by',
         'address','cash_wallet','total_income','package_id', 'a_date','image', 
         'verification','referral','code','type','email_verified','associated_with',
-        'temp_password','last_login'
+        'temp_password','last_login','roi_account'
     ];
 
     /**
@@ -113,6 +113,11 @@ class User extends Authenticatable
         return $this->hasMany(Earning::class)->where('type','in_direct_team_income');
     }
     
+    public function roiIncome()
+    {
+        return $this->hasMany(Earning::class)->where('type','roi_income');
+    }
+    
     public function totalWithdraw()
     {
         return $this->hasMany(Withdraw::class)->sum('payment');
@@ -142,7 +147,7 @@ class User extends Authenticatable
     }
 	public function mrefers()
     {
-        return $this->where('refer_by',$this->id)->where('type','!=','fake')->get();
+        return $this->where('refer_by',$this->id)->get();
     }
 	public function total_referrals()
     {
