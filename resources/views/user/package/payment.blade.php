@@ -61,7 +61,7 @@ SELECT PACKAGE PAYMENT
                         </div> 
                         <div class="form-group col-md-6">
                             <label >Trancation id# <span>*</span></label>
-                            <input type="number" class="form-control" name="t_id" value="" required>
+                            <input type="text" class="form-control" name="t_id" value="" required>
                         </div>      
                         <div class="form-group col-md-6">
                             <label >Payment Gateway: <span>*</span></label>

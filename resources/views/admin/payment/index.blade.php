@@ -21,8 +21,8 @@
                             <input type="text" name="name" class="form-control" placeholder="Enter Account Holder Name" required>
                         </div>
                         <div class="form-group col-6">
-                            <label class="form-label">Account Number</label>
-                            <input type="number" name="number" class="form-control" placeholder="Enter Account Number" required>
+                            <label class="form-label">Receiver Address</label>
+                            <input type="text" name="number" class="form-control" placeholder="Enter Receiver Address" required>
                         </div>
                     </div>   
                     <div class="row">
@@ -70,7 +70,7 @@
                         <th style="width:auto;">Sr#</th>
                         <th style="width:auto;">Image</th>
                         <th style="width:auto;">Account Holder Name</th>
-                        <th style="width:auto;">Account Number</th>
+                        <th style="width:auto;">Receiver Address</th>
                         <th style="width:auto;">Payment Method</th>
                         <th style="width:auto;">Bank Name</th>
                         <th style="width:auto;">Receiver Number</th>
@@ -133,7 +133,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Account Number</label>
+                        <label>Receiver Address</label>
                         <input class="form-control" type="text" id="number" name="number" required>
                     </div>  
                     <div class="form-group">
