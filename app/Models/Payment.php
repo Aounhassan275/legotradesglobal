@@ -11,6 +11,6 @@ class Payment extends Model
         'name','number','method','bank','bnumber','image'
     ];
     public function setImageAttribute($value){
-        $this->attributes['image'] = ImageHelper::savePImage($value,'/payment_uploads/');
+        $this->attributes['image'] = ImageHelper::savePImage($value,'/uploaded_images/');
     }
 }
