@@ -85,7 +85,7 @@ class UserController extends Controller
             ]);
         }
         $user->update($request->except('password'));
-        toastr()->success('Your Informations Updated successfully');
+        toastr()->info('Your Informations Updated successfully');
         return redirect()->back();
     }
 
@@ -104,7 +104,7 @@ class UserController extends Controller
         $user = Auth::user();
         if($user->checkStatus() == false)   
         {
-          toastr()->success('Your Package is Expire');
+          toastr()->info('Your Package is Expire');
            return redirect(route('user.dashboard.index'));
         }
         return view('user.refer.index')->with('user',$user);
@@ -120,7 +120,7 @@ class UserController extends Controller
         $user->save();
         try {
             MailHelper::EmailVerified($user);
-            toastr()->success('Email Send Successfully!');
+            toastr()->info('Email Send Successfully!');
             return redirect()->back();
         } catch (\Exception $e) {
             $error  =  $e->getmessage();
@@ -190,7 +190,7 @@ class UserController extends Controller
             ]);
             ReferralIncome::CommunityPoolIncome($user,$request->community_pool);
         }
-        toastr()->success('Amount Transferred Successfully');
+        toastr()->info('Amount Transferred Successfully');
         return response()->json([
             'status' => true,
             'message' => 'Amount Transferred Successfully!!'

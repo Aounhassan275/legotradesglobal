@@ -207,9 +207,8 @@ class User extends Authenticatable
     }
 	public function WithdrawLimits()
     {
-        $withdraw_limit = $this->package->withdraw_limit;
-        $referral_count = User::where('refer_by',$this->id)->where('type','!=','fake')->count();
-        if($referral_count >= $withdraw_limit)
+        $referral_count = User::where('refer_by',$this->id)->count();
+        if($referral_count>0)
         {
             return true;
         }

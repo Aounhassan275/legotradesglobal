@@ -41,12 +41,12 @@ class WithdrawController extends Controller
     {
         $user = Auth::user();
         if($user->WithdrawLimits() == false){
-            toastr()->warning('Must Need 2 Referral');
+            toastr()->warning('Must Need 1 Referral');
             return redirect()->back();
         } 
-        if($request->payment < 25)
+        if($request->payment < 5)
         {
-            toastr()->error('Balance must be 25 in a cash wallet to get Withdraw');
+            toastr()->error('Balance must be 5 in a cash wallet to get Withdraw');
             return redirect()->back();
         }
         if($request->payment > $user->cash_wallet){
@@ -60,7 +60,7 @@ class WithdrawController extends Controller
         $user->update([
             'cash_wallet' => $user->cash_wallet - $request->payment,    
         ]);
-        toastr()->success('Withdraw Request is Submit Successfully');
+        toastr()->info('Withdraw Request is Submit Successfully');
         return redirect()->back();
     }
 
@@ -96,7 +96,7 @@ class WithdrawController extends Controller
     public function update(Request $request, Withdraw $withdraw)
     {
         $withdraw->update($request->all());
-        toastr()->success('Withdraw Informations Updated successfully');
+        toastr()->info('Withdraw Informations Updated successfully');
         return redirect()->back();
     }
 
@@ -109,7 +109,7 @@ class WithdrawController extends Controller
     public function destroy(Withdraw $withdraw)
     {
         $withdraw->delete();
-        toastr()->success('Your Withdraw Request is Deleted Successfully');
+        toastr()->info('Your Withdraw Request is Deleted Successfully');
         return redirect()->back();
     }
 }

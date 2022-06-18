@@ -77,7 +77,7 @@ class DepositController extends Controller
             'status' => 'onHold'
         ]);
 
-        toastr()->success('Your Deposit Request Has Been successfully Submitted.Please Wait 24 Hour For Activation.');
+        toastr()->info('Your Deposit Request Has Been successfully Submitted.Please Wait 24 Hour For Activation.');
         
         return redirect(route('user.dashboard.index'));
     }
@@ -101,7 +101,7 @@ class DepositController extends Controller
                 $refer_by = User::find($user->refer_by);
                 ReferralIncome::directIncome($package->price,$package,$refer_by,$user);
             }
-            toastr()->success('Your Package Active Successfully.');
+            toastr()->info('Your Package Active Successfully.');
             return redirect(route('user.dashboard.index'));
         }else{
             toastr()->warning('Your Cash Wallet have not enough balance to purchase Package.');

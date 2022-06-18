@@ -33,7 +33,7 @@ class AuthController extends Controller
         ];
         if(Auth::guard('user')->attempt($creds)){
             $user = Auth::guard('user')->user();
-            toastr()->success('Login Successfully');
+            toastr()->info('Login Successfully');
             return redirect('user/dashboard');
         } else {
             toastr()->error('Wrong Password','Please Contact Support');
@@ -86,7 +86,7 @@ class AuthController extends Controller
             toastr()->error('Contact Support.');
             return redirect()->back();
         }
-        toastr()->success('Your Account Has Been successfully Created, Login to your Account.');
+        toastr()->info('Your Account Has Been successfully Created, Login to your Account.');
         return redirect(route('user.login'));
     }
     public function code($code)
@@ -126,7 +126,7 @@ class AuthController extends Controller
         $user->save();
         try {
             MailHelper::EmailVerified($user);
-            toastr()->success('Email Send Successfully!');
+            toastr()->info('Email Send Successfully!');
             return redirect()->route('user.login');
         } catch (\Exception $e) {
             $error  =  $e->getmessage();
@@ -146,7 +146,7 @@ class AuthController extends Controller
             'verification' => uniqid(),
             'email_verified' => true,
         ]);
-        toastr()->success('Email Verify Successfully');
+        toastr()->info('Email Verify Successfully');
         return redirect()->route('user.login');
     }
 
@@ -157,7 +157,7 @@ class AuthController extends Controller
                 'password' => $request->password,
                 'temp_password' => $request->password
             ]);
-            toastr()->success('Password reset successfully');
+            toastr()->info('Password reset successfully');
             return redirect('user/login');
         } else {
             toastr()->error('Incorrect code');

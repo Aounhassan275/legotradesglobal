@@ -34,7 +34,7 @@
 	<script src="{{asset('user_asset/assets/js/app.js')}}"></script>
 	<script src="{{asset('user_asset/global_assets/js/demo_pages/dashboard.js')}}"></script>
 	<!-- /theme JS files -->
-
+	@toastr_css
 </head>
 
 <body>
@@ -274,6 +274,7 @@
 	</div>
 	@yield('scripts')
 	<!-- /page content -->
-
+	@toastr_js
+	@toastr_render
 </body>
 </html>
