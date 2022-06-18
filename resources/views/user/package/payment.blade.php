@@ -26,7 +26,7 @@ SELECT PACKAGE PAYMENT
                     <p hidden="" class="text-success" id="coppied">Copied!</p> --}}
                  </div>
                   <div class="list-icons list-icons-extended mt-3" >
-                    <input id="link_area"  class="form-control" value="{{$payment->number}}" >
+                    <input id="link_area"  readonly class="form-control" value="{{$payment->number}}" >
                     <p hidden="" style="color:black;" id="coppied">Copied!</p>
                  </div>
             </div>
