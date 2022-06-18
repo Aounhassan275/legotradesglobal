@@ -113,7 +113,7 @@ class ReferralIncome
         $inloss_account->update([
             'balance' => $inloss_account->balance + $company_income,
         ]);
-        info("Roi Account Amount : $company_income");
+        info("Reward Account Amount : $company_income");
         $roi_income = $price / 100 * 96;
         $roi_account= CompanyAccount::roi_account();
         $roi_account->update([

@@ -19,7 +19,7 @@
                     <th style="width:auto;">User Name</th>
                     <th style="width:auto;">Amount Withdraw</th>
                     <th style="width:auto;">Account Name</th>
-                    <th style="width:auto;">Account Number</th>
+                    <th style="width:auto;">Receiving Address</th>
                     <th style="width:auto;">Method</th>
                     <th style="width:auto;">Status</th>
                     <th style="width:auto;">Date</th>

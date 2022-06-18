@@ -22,13 +22,13 @@ class UserSeeder extends Seeder
             'updated_at' => Carbon::now()],
             ]);
             DB::table('packages')->insert([
-                [ 'name' => 'Smallest',
+                [ 'name' => 'Lego 50',
                 'price' => '50',
                 'direct_income' => '20',
                 'indirect_income' => '10',
                 'weekly_roi' => '20',
                 'withdraw_limit' => '20'],
-                [ 'name' => 'Sliver',
+                [ 'name' => 'Lego 100',
                 'price' => '100',
                 'direct_income' => '20',
                 'indirect_income' => '10',

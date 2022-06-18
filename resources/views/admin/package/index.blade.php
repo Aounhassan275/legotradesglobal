@@ -20,7 +20,7 @@
                         <th style="width:auto;">Package Price</th>
                         <th style="width:auto;">Direct Income</th>
                         <th style="width:auto;">Indirect Income</th>
-                        <th style="width:auto;">Weekly Roi</th>
+                        <th style="width:auto;">Weekly Reward</th>
                         <th style="width:auto;">Withdraw Limit</th>
                         <th style="width:auto;">Action</th>
                         <th style="width:auto;">Action</th>

@@ -1,6 +1,6 @@
 @extends('user.layout.index')
 @section('title')
-VIEW ROI INCOME 
+VIEW REWARD INCOME 
 @endsection
 @section('styles')
 <script src="{{asset('user_asset/global_assets/js/demo_pages/picker_date.js')}}"></script>
@@ -16,7 +16,7 @@ VIEW ROI INCOME
 
 <div class="card">
     <div class="card-header header-elements-inline">
-        <h5 class="card-title">View Your Roi Income History</h5>
+        <h5 class="card-title">View Your Reward Income History</h5>
         <div class="header-elements">
             <div class="list-icons">
                 <a class="list-icons-item" data-action="collapse"></a>

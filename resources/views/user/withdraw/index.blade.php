@@ -24,7 +24,7 @@
                 <th>User Balance</th>
                 <th>Amount Withdraw</th>
                 <th>Account Name</th>
-                <th>Account Number</th>
+                <th>Receiving Address</th>
                 <th>Method</th>
                 <th>Status</th>
                 <th>Action</th>

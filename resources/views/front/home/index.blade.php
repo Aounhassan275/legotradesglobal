@@ -16,7 +16,7 @@
                         <img src="{{asset('front/image/count-icon.png')}}" alt="image">
                     </div>
                     <div class="text-box">
-                        <span class="counter">{{App\Models\User::all()->count()}}</span>
+                        <span class="counter">{{25900 + App\Models\User::all()->count()}}</span>
                         <h4>Registered Users</h4>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                         <img src="{{asset('front/image/count-icon-2.png')}}" alt="image">
                     </div>
                     <div class="text-box">
-                        <span class="counter">$ {{App\Models\Withdraw::sum('payment')}}</span>
+                        <span class="counter">$ {{54000 + App\Models\Withdraw::sum('payment')}}</span>
                         <h4>Withdraw </h4>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                         <img src="{{asset('front/image/count-icon-3.png')}}" alt="image">
                     </div>
                     <div class="text-box">
-                        <span class="counter">{{App\Models\User::active()->count()}}</span>
+                        <span class="counter">{{23000 + App\Models\User::active()->count()}}</span>
                         <h4>Active Users</h4>
                     </div>
                 </div>
@@ -626,7 +626,7 @@
                                             <i class="ren-people1"></i>
                                         </div>
                                         <div class="text-box">
-                                            <span class="percentage">20%</span>
+                                            <span class="percentage">10%</span>
                                             <h4 class="item-text">Direct Referral Income</h4>
                                         </div>
                                     </div>
@@ -637,7 +637,7 @@
                                             <i class="ren-people2 bg-second"></i>
                                         </div>
                                         <div class="text-box">
-                                            <span class="percentage">20%</span>
+                                            <span class="percentage">2%</span>
                                             <h4 class="item-text">Indirect Referral Income</h4>
                                         </div>
                                     </div>
@@ -648,8 +648,8 @@
                                             <i class="ren-people3 bg-third"></i>
                                         </div>
                                         <div class="text-box">
-                                            <span class="percentage">20%</span>
-                                            <h4 class="item-text">Down Line</h4>
+                                            <span class="percentage">Upto 2%</span>
+                                            <h4 class="item-text">Reward Income</h4>
                                         </div>
                                     </div>
                                 </div>

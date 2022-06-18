@@ -19,6 +19,7 @@
                         <th style="width:auto;">Name</th>
                         <th style="width:auto;">Email </th>
                         <th style="width:auto;">Cash Wallet </th>
+                        <th style="width:auto;">Reward Account </th>
                         <th style="width:auto;">Total Earning </th>
                         <th style="width:auto;">Refer By </th>
                         <th style="width:auto;">Placement </th>
@@ -36,6 +37,7 @@
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         <td>$ {{$user->cash_wallet}}</td>
+                        <td>$ {{$user->roi_account}}</td>
                         <td>$ {{$user->totalEarning()}}</td>
                         <td>{{$user->refer_by_name($user->refer_by)}}</td>
                         <td>{{$user->refer_by_name($user->referral)}}</td>

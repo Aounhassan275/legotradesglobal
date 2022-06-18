@@ -42,8 +42,8 @@
                         <input type="number" class="form-control" name="withdraw_limit"  placeholder="Withdraw Limit" value="{{$package->withdraw_limit}}">
                     </div>
                     <div class="form-group col-6">
-                        <label class="form-label">Weekly Roi</label>
-                        <input type="number" class="form-control" name="weekly_roi"  placeholder="Weekly Roi" value="{{$package->weekly_roi}}">
+                        <label class="form-label">Weekly Reward</label>
+                        <input type="number" class="form-control" name="weekly_roi"  placeholder="Weekly Reward" value="{{$package->weekly_roi}}">
                     </div>
                </div>
                     <div class="text-right">

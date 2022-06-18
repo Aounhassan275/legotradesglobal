@@ -264,7 +264,7 @@ class User extends Authenticatable
     {
         $parents = [];
         $parent = $this;
-        for($i = 0; $i < 4;$i++)
+        for($i = 0; $i < 3;$i++)
         {
             $parent = User::where('id',$parent->refer_by)->first();
             if(!$parent)

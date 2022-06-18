@@ -71,7 +71,7 @@
 				 <strong>Cash Wallet : </strong> $ {{Auth::user()->cash_wallet}}
 				</span>
 				<span style="margin-left:10px;" class="badge badge-mark border-teal-300 mr-2"></span>
-				 <strong>Roi Account : </strong> $ {{Auth::user()->roi_account}}
+				 <strong>Reward Account : </strong> $ {{Auth::user()->roi_account}}
 				</span>
 
 			<ul class="navbar-nav ml-md-auto">
@@ -99,7 +99,7 @@
 								<div class="col-12 col-sm-4">
 									<a href="{{route('user.earning.roi_income')}}" class="d-block text-default text-center ripple-dark rounded p-3">
 										<i class="icon-credit-card2 text-success-400 icon-2x"></i>
-										<div class="font-size-sm font-weight-semibold text-uppercase mt-2">Roi Earning</div>
+										<div class="font-size-sm font-weight-semibold text-uppercase mt-2">Reward Earning</div>
 									</a>
 								</div>
 							</div>
@@ -189,7 +189,7 @@
 							<a href="#" class="nav-link"><i class="icon-users4"></i> <span>Referral</span></a>
 
 							<ul class="nav nav-group-sub" data-submenu-title="Layouts" style="{{Request::is('user/refer*')?'display:block':''}}">
-								<li class="nav-item"><a href="{{route('user.refer.index')}}" class="nav-link {{Request::is('user/refer')?'active':''}}">Direct Referral</a></li>
+								<li class="nav-item"><a href="{{route('user.refer.index')}}" class="nav-link {{Request::is('user/refer')?'active':''}}">Direct Referral Link</a></li>
 								<li class="nav-item"><a href="{{route('user.tree.show')}}" class="nav-link {{Request::is('user/refer/tree')?'active':''}}">Your Tree</a></li>
 							</ul>
 						</li>
@@ -272,6 +272,7 @@
 		<!-- /main content -->
 
 	</div>
+	@yield('scripts')
 	<!-- /page content -->
 
 </body>

@@ -117,7 +117,7 @@ DASHBOARD
             <div class="media">
                 <div class="media-body">
                     <h3 class="mb-0">$ {{Auth::user()->roiIncome()->sum('price')}}</h3>
-                    <span class="text-uppercase font-size-xs">Total Roi Income</span>
+                    <span class="text-uppercase font-size-xs">Total Reward Income</span>
                 </div>
 
                 <div class="ml-3 align-self-center">
