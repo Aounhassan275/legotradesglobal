@@ -81,7 +81,6 @@ class UserController extends Controller
         {
             $user->update([
                 'password' => $request->password,
-                'temp_password' => $request->password
             ]);
         }
         $user->update($request->except('password'));

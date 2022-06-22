@@ -86,12 +86,8 @@ class UserController extends Controller
         {
             $user->update([
                 'password' => $request->password,
-                'temp_password' => $request->password
             ]);
         }
-        $request->merge([
-            'email_verified' => $request->email_verified?1:0,
-        ]);
         $user->update($request->except('password'));
         toastr()->success('User is Updated Successfully');
         return redirect()->back();
