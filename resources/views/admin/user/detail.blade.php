@@ -264,26 +264,7 @@
                                     <label for="inputEmail4">Cash Wallet</label>
                                     <input type="text" class="form-control" name="cash_wallet"  value="{{$user->cash_wallet}}" >
                                 </div> 
-                                <div class="form-group col-md-6">
-                                    <label for="inputEmail4">Temp Income</label>
-                                    <input type="text" class="form-control" name="total_income"  value="{{$user->total_income}}" >
-                                </div> 
                             </div> 
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputEmail4">Total Invesment</label>
-                                    <input type="text" class="form-control" name="investment_amount"  value="{{$user->investment_amount}}" >
-                                </div> 
-                                <div class="form-group col-md-6">
-                                    <label for="inputEmail4">Community Pool</label>
-                                    <input type="text" class="form-control" name="community_pool"  value="{{$user->community_pool}}" >
-                                </div> 
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <label ><input type="checkbox" name="email_verified"  {{ isset($user) && $user->email_verified ? 'checked' : '' }}> Email Verification</label>
-                                </div> 
-                            </div>
                             <div class="text-right">
                                 <button type="submit"  class="btn btn-primary">Update Profile</button>
                             </div>
